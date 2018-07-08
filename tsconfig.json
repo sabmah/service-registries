@@ -1,0 +1,16 @@
+{
+  "compileOnSave": false,
+  "buildOnSave" : false,
+  "compilerOptions": {
+    "target": "es5",
+    "jsx": "react",
+    "module": "commonjs",
+    "lib": [
+      "es6",
+      "dom"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

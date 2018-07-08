@@ -1,0 +1,11 @@
+ul{
+    list-style: none;
+}
+
+ul>li >span.show{
+    display: inline-block;
+}
+
+ul>li >span.hide{
+    display: none;
+}
