@@ -6,8 +6,8 @@ import {ServiceListItemModel} from "../../types/services/serviceModel";
 const ServiceListItem = (props:ServiceListItemModel) => {
     return(
         <li 
-            //onMouseEnter={() => props.toggleDescription(props.service.Id)} 
-            //onMouseLeave={() => props.toggleDescription(props.service.Id)}
+            onMouseOver={() => props.onHoverHandler()} 
+            onMouseLeave={() => props.onHoverHandler()}
             >
 
             {props.service.Name} 

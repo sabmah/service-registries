@@ -6,9 +6,11 @@ export default class ServiceModel{
     IsActive: boolean;
 }
 
+
 export class ServiceListItemModel{
     service:ServiceModel;
-    showDescription: boolean = false;
+    showDescription: boolean=false;
+    onHoverHandler: any;
 
 }
 
@@ -19,7 +21,8 @@ export interface IStateProps{
 export interface IDispatchProps{
     fetchServiceRecords : any,
     addServiceRecord: any,
-    removeServiceRecord: any
+    removeServiceRecord: any,
+    toggleDescription: any
 }
 
 export type ServiceListProps = (IStateProps & IDispatchProps);

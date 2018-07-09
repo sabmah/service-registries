@@ -26,7 +26,7 @@ class ServiceRecordApi{
             Id: 1,
             Name : "Navigator",
             IsActive : true,
-            Description : "Navigator Micro-Service"
+            Description : "Navigator Micro-Service"            
         }
 
         var pdxService : ServiceModel = {

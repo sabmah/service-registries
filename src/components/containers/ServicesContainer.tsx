@@ -1,35 +1,10 @@
 
-import {connect} from "react-redux"
-import {bindActionCreators} from "redux";
-import ServiceActionCreators from "../../actions/serviceRecordActions";
+import * as React from "react";
 import ServiceList from "../presentations/ServiceList";
-import { IStateProps, IDispatchProps } from "../../types/services/serviceModel";
+import ServiceModel, { ServiceListItemModel, ServiceListProps } from "../../types/services/serviceModel";
 
+class ServicesContainer extends React.Component<ServiceListProps>{
 
-function mapStateToProps(state:any): IStateProps{
-    return {services: state.serviceRecords.map(s =>({service: s, showDescription: false}))}
-}
-
-function mapDispatchToProps(dispatch:any): IDispatchProps{
-
-    const dispatchProps : any = {
-        fetchServiceRecords : ServiceActionCreators.fetchServiceRecords,
-        addServiceRecord: ServiceActionCreators.addServiceRecord,
-        removeServiceRecord: ServiceActionCreators.removeServiceRecord
-    }
-
-    return bindActionCreators(dispatchProps, dispatch);
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ServiceList);
-
-/* class ServicesContainer extends React.Component<Props>{
-
-    constructor(props:any){
-        super(props);
-        this.state = {services : []};
-    }
 
     addServiceHandler(newService:ServiceModel) : void{
         this.props.addServiceRecord(newService);
@@ -41,6 +16,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(ServiceList);
 
     removeService(id:any){
         this.props.removeServiceRecord(id);
+    }
+
+    toggleDescriptionn(){
+        
     }
 
     render(){
@@ -57,4 +36,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(ServiceList);
             </div>
         )
     }
-} */
+}

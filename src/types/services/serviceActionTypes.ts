@@ -21,8 +21,12 @@ export interface ServiceRemoveAction{
     meta: ApiMetaData
 }
 
+export interface ToggleDescriptionAction{
+    type: typeKeys.uiActionType
+}
 
-type ServiceActions = ServiceFetchAction | ServiceAddAction | ServiceRemoveAction ;
+
+type ServiceActions = ServiceFetchAction | ServiceAddAction | ServiceRemoveAction | ToggleDescriptionAction ;
 
 export default ServiceActions;
 
