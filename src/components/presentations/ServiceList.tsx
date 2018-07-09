@@ -2,19 +2,8 @@ import * as React from "react";
 import { IStateProps } from "../../types/services/serviceModel";
 import ServiceListItem from "../presentations/ServiceListItem";
 
-class ServiceList extends React.Component<IStateProps,any> {
+class ServiceList extends React.Component<IStateProps> {
     
-    constructor(props){
-        super(props);
-
-        this.state = {showDescription:false};
-    }
-
-    toggleDescription(){
-                
-        this.setState(prevState => ({showDescription: !prevState.showDescription}));
-    }
-
     render(){
         
         return (
@@ -23,9 +12,7 @@ class ServiceList extends React.Component<IStateProps,any> {
                     this.props.services.map((s) => (
                         <ServiceListItem 
                             key={s.Id}
-                            service={s} 
-                            showDescription={this.state.showDescription}
-                            onHoverHandler={() => this.toggleDescription()}
+                            service={s}
                         />
                     ))
                 }

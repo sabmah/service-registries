@@ -7,15 +7,15 @@ export default class ServiceModel{
 }
 
 
-export class ServiceListItemModel{
+export class ServiceListItemProps{
     service:ServiceModel;
-    showDescription: boolean=false;
-    onHoverHandler: any;
+    //showDescription: boolean=false;
+    //onHoverHandler: any;
 
 }
 
 export interface IStateProps{
-    services: ServiceListItemModel[]
+    services: ServiceModel[]
 }
 
 export interface IDispatchProps{
@@ -25,7 +25,7 @@ export interface IDispatchProps{
     toggleDescription: any
 }
 
-export type ServiceListProps = (IStateProps & IDispatchProps);
+export type ServiceContainerProps = (IStateProps & IDispatchProps);
 
 
 

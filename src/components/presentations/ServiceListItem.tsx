@@ -1,96 +1,38 @@
 import * as React from "react";
-import {ServiceListItemModel} from "../../types/services/serviceModel";
+import {ServiceListItemProps} from "../../types/services/serviceModel";
 
-// Stateless Component
+class ServiceListItem extends React.Component<ServiceListItemProps, any> {
 
-const ServiceListItem = (props:ServiceListItemModel) => {
-    return(
-        <li 
-            onMouseOver={() => props.onHoverHandler()} 
-            onMouseLeave={() => props.onHoverHandler()}
-            >
+    constructor(props){
+        super(props);
 
-            {props.service.Name} 
-            
-            <a href="#" >Remove</a>
+        // only UI state changes
+        this.state = {showDescription: false}
+    }
 
-            {props.showDescription &&
-                <p > - {props.service.Description}</p> 
-            }
-            
-        </li>
-    )
+    toggleDescription(){
+        this.setState(prevState => ({showDescription: !prevState.showDescription}))
+    }
+
+    render(){
+        return(
+            <li 
+                onMouseOver={() => this.toggleDescription()} 
+                onMouseLeave={() => this.toggleDescription()}
+                >
+    
+                {this.props.service.Name} 
+                
+                <a href="#" >Remove</a>
+    
+                {this.state.showDescription &&
+                    <p > - {this.props.service.Description}</p> 
+                }
+                
+            </li>
+        )
+    }
+    
 }
 
 export default ServiceListItem;
-
-/* const ServiceList = (props: IServiceListUIProps) =>{
-    return (
-        <ul>
-            {
-                props.services.map((s) => {
-                    
-                    return (
-                        <li key={s.service.Id} onMouseEnter={() => props.toggleDescription(s)} onMouseLeave={() => props.toggleDescription(s)}>
-                            {s.service.Name} <a href="#" onClick={() => props.removeService(s.service.Id)}>Remove</a>
-
-                            {s.showDescription &&
-                                <p > - {s.service.Description}</p> 
-                            }
-                            
-                        </li>
-                    )
-                })
-            }
-        </ul>
-    )
-} */
-
-/* class ServiceList extends React.Component<IServiceListUIProps> {
-    
-    constructor(props){
-        super(props);
-    }
-
-    componentDidMount(){
-        // State is depending on the Prop!! is it good?
-        this.props.services.map((s) => { this.state.ServiceListState.push({service: s, showDescription: false})});
-    }
-
-    toggleDescription(serviceListState: ServiceListUIModel){
-        const arr = [...this.state.ServiceListState];
-
-        arr.forEach(element => {
-            if(element.service.Id === serviceListState.service.Id){
-                element.showDescription = !element.showDescription
-            }
-        });
-        
-        this.setState({ServiceListState : arr})
-    }
-
-    render (){
-        
-        return (
-            <ul>
-                {
-                    
-                    this.state.ServiceListState.map((s) => {
-                        
-                        return (
-                            <li key={s.service.Id} onMouseEnter={() => this.toggleDescription(s)} onMouseLeave={() => this.toggleDescription(s)}>
-                                {s.service.Name} <a href="#" onClick={() => this.props.removeService(s.service.Id)}>Remove</a>
-
-                                {s.showDescription &&
-                                    <p > - {s.service.Description}</p> 
-                                }
-                                
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        )
-    }
-} */
-

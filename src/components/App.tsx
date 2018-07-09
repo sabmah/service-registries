@@ -2,11 +2,11 @@ import * as React from "react";
 import ServicesContainer from "./containers/ServicesContainer";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { IStateProps, IDispatchProps, ServiceListProps } from "../types/services/serviceModel";
+import { IStateProps, IDispatchProps, ServiceContainerProps } from "../types/services/serviceModel";
 import ServiceActionCreators from "../actions/serviceRecordActions";
 
 
-class App extends React.Component<ServiceListProps>{
+class App extends React.Component<ServiceContainerProps>{
 
   constructor(props){
     super(props)
@@ -14,7 +14,7 @@ class App extends React.Component<ServiceListProps>{
 
   render(){
     return(
-      <ServicesContainer services = {...this.props.services}/>
+      <ServicesContainer {...this.props}/>
     )
   }
 }
