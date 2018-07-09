@@ -17,13 +17,9 @@ export enum removeActionType{
     REMOVE_SERVICE = "REMOVE_SERVICE"
 }
 
-export enum uiActionType{
-    TOGGLE_DESCRIPTION = "TOGGLE_DESCRIPTION"
-}
 
 type serviceActionTypes = fetchActionType 
 | addActionType 
-| removeActionType
-| uiActionType;
+| removeActionType;
 
 export default serviceActionTypes;

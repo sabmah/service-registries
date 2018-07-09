@@ -9,17 +9,12 @@ export default class ServiceModel{
 export class ServiceListItemProps{
     service:ServiceModel;
     removeService: (id:number) => void;
-    //showDescription: boolean=false;
-    //onHoverHandler: any;
-
 }
 
 export class ServiceListProps{
     services: ServiceModel[];
     removeService: (id:number) => void
 }
-
-
 
 export interface IStateProps{
     services: ServiceModel[]

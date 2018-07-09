@@ -5,7 +5,6 @@ import { bindActionCreators } from "redux";
 import { IStateProps, IDispatchProps, ServiceContainerProps } from "../types/services/serviceModel";
 import ServiceActionCreators from "../actions/serviceRecordActions";
 
-
 class App extends React.Component<ServiceContainerProps>{
 
   constructor(props){
@@ -14,14 +13,16 @@ class App extends React.Component<ServiceContainerProps>{
 
   render(){
     return(
-      <ServicesContainer {...this.props}/>
+      <ServicesContainer {...this.props} />
     )
   }
 }
 
 
 function mapStateToProps(state:any): IStateProps{
-  return {services: state.serviceRecords}
+  return {
+    services: state.serviceRecords
+  }
 }
 
 function mapDispatchToProps(dispatch:any): IDispatchProps{

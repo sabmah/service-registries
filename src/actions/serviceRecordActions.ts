@@ -1,7 +1,7 @@
 import * as typeKeys from "../types/services/actionTypeKeys"
 import ServiceModel from "../types/services/serviceModel"
-import { ServiceFetchAction, ServiceAddAction, ServiceRemoveAction, ToggleDescriptionAction }  from "../types/services/serviceActionTypes";
-import ApiMetaData, { ApiType, ApiRecordTypes } from "../types/common/ApiMetaData";
+import { ServiceFetchAction, ServiceAddAction, ServiceRemoveAction }  from "../types/services/serviceActionTypes";
+import { ApiType, ApiRecordTypes } from "../types/common/ApiMetaData";
 import HttpMethods from "../types/common/HttpMethods";
 
 const ServiceActionCreators = {
@@ -40,12 +40,6 @@ const ServiceActionCreators = {
                 url:"",
                 method: HttpMethods.DELETE
             }
-        }
-    ) ,
-
-    toggleDescription:() : ToggleDescriptionAction => (
-        {
-            type: typeKeys.uiActionType.TOGGLE_DESCRIPTION
         }
     )
 }

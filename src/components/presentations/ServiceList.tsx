@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IStateProps, ServiceListProps } from "../../types/services/serviceModel";
+import { ServiceListProps } from "../../types/services/serviceModel";
 import ServiceListItem from "../presentations/ServiceListItem";
 
 class ServiceList extends React.Component<ServiceListProps> {
