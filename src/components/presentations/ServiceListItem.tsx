@@ -23,7 +23,7 @@ class ServiceListItem extends React.Component<ServiceListItemProps, any> {
     
                 {this.props.service.Name} 
                 
-                <a href="#" >Remove</a>
+                <a href="#" onClick={() => this.props.removeService(this.props.service.Id)}>Remove</a>
     
                 {this.state.showDescription &&
                     <p > - {this.props.service.Description}</p> 

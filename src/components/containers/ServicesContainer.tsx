@@ -5,6 +5,9 @@ import ServiceModel, { ServiceContainerProps } from "../../types/services/servic
 
 class ServicesContainer extends React.Component<ServiceContainerProps>{
 
+    constructor(props){
+        super(props);
+    }
 
     addServiceHandler(newService:ServiceModel) : void{
         this.props.addServiceRecord(newService);
@@ -14,12 +17,8 @@ class ServicesContainer extends React.Component<ServiceContainerProps>{
         this.props.fetchServiceRecords();
     }
 
-    removeService(id:any){
+    removeService(id:number){
         this.props.removeServiceRecord(id);
-    }
-
-    toggleDescriptionn(){
-        
     }
 
     render(){
@@ -29,7 +28,7 @@ class ServicesContainer extends React.Component<ServiceContainerProps>{
                 <h2>Services</h2>
                 <button onClick={() =>this.addServiceHandler({Name:"New Service", Description:"new description", IsActive:true})}>Add</button>
                 <button onClick={() => this.refetchServicesHandler()}>Re-Fetch</button>
-                <ServiceList {...this.props}/>
+                <ServiceList services={this.props.services} removeService={(id:number) => this.removeService(id)}/>
             </div>
         )
     }

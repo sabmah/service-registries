@@ -1,8 +1,8 @@
 import * as React from "react";
-import { IStateProps } from "../../types/services/serviceModel";
+import { IStateProps, ServiceListProps } from "../../types/services/serviceModel";
 import ServiceListItem from "../presentations/ServiceListItem";
 
-class ServiceList extends React.Component<IStateProps> {
+class ServiceList extends React.Component<ServiceListProps> {
     
     render(){
         
@@ -13,6 +13,7 @@ class ServiceList extends React.Component<IStateProps> {
                         <ServiceListItem 
                             key={s.Id}
                             service={s}
+                            removeService={(id:number) => this.props.removeService(id)}
                         />
                     ))
                 }

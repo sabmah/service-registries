@@ -6,13 +6,20 @@ export default class ServiceModel{
     IsActive: boolean;
 }
 
-
 export class ServiceListItemProps{
     service:ServiceModel;
+    removeService: (id:number) => void;
     //showDescription: boolean=false;
     //onHoverHandler: any;
 
 }
+
+export class ServiceListProps{
+    services: ServiceModel[];
+    removeService: (id:number) => void
+}
+
+
 
 export interface IStateProps{
     services: ServiceModel[]
@@ -21,8 +28,7 @@ export interface IStateProps{
 export interface IDispatchProps{
     fetchServiceRecords : any,
     addServiceRecord: any,
-    removeServiceRecord: any,
-    toggleDescription: any
+    removeServiceRecord: any
 }
 
 export type ServiceContainerProps = (IStateProps & IDispatchProps);
